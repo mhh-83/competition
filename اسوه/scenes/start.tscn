@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://d16f85u0a8fcb"]
+
+[ext_resource type="Texture2D" uid="uid://dntc8mghb3cy0" path="res://sprite/Layer 1.jpg" id="1_7nuf0"]
+[ext_resource type="Texture2D" uid="uid://qfkfu354rnah" path="res://sprite/Tarh.ir copy.png" id="2_p706e"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n4nhu"]
+texture = ExtResource("2_p706e")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_7nuf0")
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 217.0
+offset_top = 94.0
+offset_right = 767.0
+offset_bottom = 244.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_n4nhu")
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 338.0
+offset_right = 766.0
+offset_bottom = 488.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_n4nhu")
+
+[node name="Button4" type="Button" parent="."]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 588.0
+offset_right = 766.0
+offset_bottom = 738.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_n4nhu")

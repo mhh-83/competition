@@ -1,0 +1,91 @@
+[gd_scene load_steps=8 format=3 uid="uid://ckfm4x7nxhjb6"]
+
+[ext_resource type="Texture2D" uid="uid://dy64700ca32nr" path="res://sprite/nody1--1635465614.png" id="1_x6b22"]
+[ext_resource type="Texture2D" uid="uid://bpf4y8iaut8qh" path="res://sprite/nody2--1635465614.png" id="2_6jp0p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5d1o2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ke680"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_vlswj"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_woaxi"]
+viewport_path = NodePath("SubViewport2")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4hsow"]
+
+[node name="TextureRect" type="TextureRect"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -105.5
+offset_right = 105.5
+offset_bottom = 204.0
+grow_horizontal = 2
+texture = ExtResource("1_x6b22")
+expand_mode = 1
+
+[node name="LineEdit" type="TextEdit" parent="."]
+layout_direction = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0947867
+anchor_top = 0.436
+anchor_right = 0.952393
+anchor_bottom = 0.960784
+offset_top = 0.0559998
+offset_right = 0.0449982
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5d1o2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ke680")
+placeholder_text = "   متن گزینه را وارد کنید"
+wrap_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CheckBox" type="CheckBox" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.281991
+anchor_top = 0.0686275
+anchor_right = 0.699052
+anchor_bottom = 0.5
+grow_horizontal = 2
+tooltip_text = "درست یا غلط بودن گزینه"
+mouse_default_cursor_shape = 2
+theme_override_icons/checked = SubResource("ViewportTexture_vlswj")
+theme_override_icons/unchecked = SubResource("ViewportTexture_woaxi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4hsow")
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(80, 80)
+
+[node name="TextureRect" type="TextureRect" parent="SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6jp0p")
+expand_mode = 1
+
+[node name="SubViewport2" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(80, 80)
+
+[node name="TextureRect" type="TextureRect" parent="SubViewport2"]
+modulate = Color(1, 0, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6jp0p")
+expand_mode = 1

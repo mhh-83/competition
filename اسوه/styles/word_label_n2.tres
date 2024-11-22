@@ -1,0 +1,7 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://ckfa6ivvfiv26"]
+
+[ext_resource type="Texture2D" uid="uid://dic3ehi0pu1cr" path="res://sprite/show_word.png" id="1_nrn5l"]
+
+[resource]
+texture = ExtResource("1_nrn5l")
+axis_stretch_horizontal = 2

@@ -1,0 +1,90 @@
+[gd_scene load_steps=11 format=3 uid="uid://i6qfkgd125xy"]
+
+[ext_resource type="Script" path="res://script/bees.gd" id="1_k2yvt"]
+[ext_resource type="Texture2D" uid="uid://bed3cqyw7aqne" path="res://sprite/pigeon-animation-bird-motion-wings-heaven-birds-sequence-frame-sprite-cycle-movement-flight-feather-d-animated-dove-flying-246524861.png" id="2_350lg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42dc0"]
+atlas = ExtResource("2_350lg")
+region = Rect2(73, 10, 121, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kyma4"]
+atlas = ExtResource("2_350lg")
+region = Rect2(194, 10, 121, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aekc4"]
+atlas = ExtResource("2_350lg")
+region = Rect2(315, 10, 121, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6clyy"]
+atlas = ExtResource("2_350lg")
+region = Rect2(436, 10, 121, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rfuu"]
+atlas = ExtResource("2_350lg")
+region = Rect2(557, 10, 121, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dl0m"]
+atlas = ExtResource("2_350lg")
+region = Rect2(678, 10, 121, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1cpv"]
+atlas = ExtResource("2_350lg")
+region = Rect2(799, 10, 121, 132)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_svtnm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42dc0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kyma4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aekc4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6clyy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0rfuu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3dl0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1cpv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3dl0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0rfuu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6clyy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aekc4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kyma4")
+}],
+"loop": true,
+"name": &"fly1",
+"speed": 12.0
+}]
+
+[node name="bees" type="Node2D" groups=["bee"]]
+z_index = 2
+script = ExtResource("1_k2yvt")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0.999998, -10)
+scale = Vector2(5, 3.8)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_svtnm")
+animation = &"fly1"
+autoplay = "fly1"
+frame_progress = 0.611235
