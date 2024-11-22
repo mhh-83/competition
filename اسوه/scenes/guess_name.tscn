@@ -1,0 +1,260 @@
+[gd_scene load_steps=23 format=3 uid="uid://iulsstjdsk4t"]
+
+[ext_resource type="Script" path="res://script/guess_name.gd" id="1_dnyrs"]
+[ext_resource type="Texture2D" uid="uid://bpf70vuj22uv1" path="res://sprite/bg.png" id="2_rs1m5"]
+[ext_resource type="Texture2D" uid="uid://t0ul87xk7ota" path="res://sprite/سربند.png" id="3_cktk2"]
+[ext_resource type="Texture2D" uid="uid://c4exj1dvo4ldm" path="res://sprite/قاب.png" id="3_es27a"]
+[ext_resource type="Texture2D" uid="uid://b217nci2duii" path="res://sprite/بسم رب الشهدا_.png" id="5_c2saf"]
+[ext_resource type="PackedScene" uid="uid://dtl7yemd703k4" path="res://scenes/flags.tscn" id="6_0gnbf"]
+[ext_resource type="Texture2D" uid="uid://btfq6o7bvbf30" path="res://sprite/پرچم.png" id="7_6ia7u"]
+[ext_resource type="Shader" path="res://shaders/flower.gdshader" id="9_cpubl"]
+[ext_resource type="Texture2D" uid="uid://hdr0dkotsggx" path="res://sprite/Tarh.ir copy 2.png" id="10_7gh5x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tixic"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_20f88"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0.134899, 6.01634e-08, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q1dyt"]
+bg_color = Color(0.942823, 0.942823, 0.942823, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0.134899, 6.01634e-08, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s0eyh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhhnd"]
+bg_color = Color(0.0999856, 0.0999862, 0.099986, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0.134899, 6.01634e-08, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="GDScript" id="GDScript_pxu6t"]
+script/source = "extends Button
+var current_button
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6g7ip"]
+shader = ExtResource("9_cpubl")
+shader_parameter/range = 50.0
+shader_parameter/speed = Vector2(1, 0)
+shader_parameter/pivot = 1.0
+shader_parameter/dir = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6p8v7"]
+shader = ExtResource("9_cpubl")
+shader_parameter/range = 20.0
+shader_parameter/speed = Vector2(1, 0)
+shader_parameter/pivot = 1.0
+shader_parameter/dir = -1.0
+
+[sub_resource type="Gradient" id="Gradient_gstn0"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_utmms"]
+gradient = SubResource("Gradient_gstn0")
+
+[sub_resource type="Animation" id="Animation_gs6wk"]
+resource_name = "rot"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(345, 486), Vector2(755, 486), Vector2(777, 1048), Vector2(331, 1054), Vector2(345, 486)]
+}
+
+[sub_resource type="Animation" id="Animation_5ag4a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(361, 486)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_06a0i"]
+_data = {
+"RESET": SubResource("Animation_5ag4a"),
+"rot": SubResource("Animation_gs6wk")
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dnyrs")
+words = Array[String](["ب", "ب", "س", "ا", "س", "ق", "م", "س", "ح", "ا", "ج", "ز", "ی", "ن", "خ", "ر", "ی"])
+_name = "حسین"
+_family = "خرازی"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_rs1m5")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = 750.0
+offset_right = 999.0
+offset_bottom = 1471.0
+texture = ExtResource("3_cktk2")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+light_mask = 3
+layout_mode = 0
+offset_left = 219.0
+offset_top = 162.0
+offset_right = 792.0
+offset_bottom = 849.0
+texture = ExtResource("3_es27a")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 1148.0
+offset_right = 878.0
+offset_bottom = 1755.0
+columns = 7
+
+[node name="HBoxContainer" type="VBoxContainer" parent="."]
+layout_direction = 3
+layout_mode = 0
+offset_left = 69.0
+offset_top = 811.0
+offset_right = 919.0
+offset_bottom = 1012.0
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Button" type="Button" parent="."]
+visible = false
+custom_minimum_size = Vector2(110, 110)
+layout_mode = 0
+offset_left = 106.0
+offset_top = 832.0
+offset_right = 186.0
+offset_bottom = 912.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tixic")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_20f88")
+theme_override_styles/hover = SubResource("StyleBoxFlat_q1dyt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_q1dyt")
+theme_override_styles/normal = SubResource("StyleBoxFlat_q1dyt")
+
+[node name="Button2" type="Button" parent="."]
+visible = false
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 0
+offset_right = 110.0
+offset_bottom = 110.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s0eyh")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_lhhnd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_q1dyt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_q1dyt")
+theme_override_styles/normal = SubResource("StyleBoxFlat_q1dyt")
+script = SubResource("GDScript_pxu6t")
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 980.0
+offset_bottom = 137.0
+texture = ExtResource("5_c2saf")
+
+[node name="TextureRect5" parent="." instance=ExtResource("6_0gnbf")]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 1740.0
+offset_right = 14.0
+offset_bottom = 2001.0
+scale = Vector2(1.715, 1.715)
+flag = ExtResource("7_6ia7u")
+
+[node name="TextureRect7" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_6g7ip")
+layout_mode = 0
+offset_left = 590.0
+offset_top = 1635.0
+offset_right = 888.0
+offset_bottom = 2068.0
+texture = ExtResource("10_7gh5x")
+
+[node name="TextureRect8" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_6p8v7")
+layout_mode = 0
+offset_left = 791.0
+offset_top = 1650.0
+offset_right = 1089.0
+offset_bottom = 2083.0
+texture = ExtResource("10_7gh5x")
+
+[node name="TextureRect9" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_6p8v7")
+layout_mode = 0
+offset_left = 416.0
+offset_top = 1675.0
+offset_right = 714.0
+offset_bottom = 2108.0
+texture = ExtResource("10_7gh5x")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(361, 486)
+energy = 0.4
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_utmms")
+offset = Vector2(-51, -300)
+texture_scale = 1.95
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_06a0i")
+}
+autoplay = "rot"

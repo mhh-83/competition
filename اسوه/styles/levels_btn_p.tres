@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://yuor50l6hvmo"]
+
+[ext_resource type="Texture2D" uid="uid://cihj0w5k1xlog" path="res://sprite/btn_level_city.png" id="1_566ud"]
+
+[resource]
+texture = ExtResource("1_566ud")
+expand_margin_left = 6.0
+expand_margin_top = 6.0
+expand_margin_right = 6.0
+expand_margin_bottom = 6.0
+modulate_color = Color(0.741176, 0.741176, 0.741176, 1)

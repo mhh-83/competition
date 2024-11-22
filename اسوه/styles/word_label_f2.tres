@@ -1,0 +1,7 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://ndkj42u4p41p"]
+
+[ext_resource type="Texture2D" uid="uid://buymlg3wj2hg3" path="res://sprite/کادر.png" id="1_6gpmv"]
+
+[resource]
+texture = ExtResource("1_6gpmv")
+modulate_color = Color(1, 0, 0, 1)

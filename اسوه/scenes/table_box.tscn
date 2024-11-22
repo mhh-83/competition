@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cby355nkoe8pm"]
+
+[ext_resource type="FontFile" uid="uid://c583i0tksdfuq" path="res://fonts/B Titr Bold_0.ttf" id="1_xqkfg"]
+[ext_resource type="Texture2D" uid="uid://c716relnvjybx" path="res://sprite/asal-kv-Tarh.ir5-3-b.png" id="2_6yu4d"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_207qo"]
+texture = ExtResource("2_6yu4d")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j7465"]
+
+[node name="LineEdit" type="LineEdit" groups=["box"]]
+offset_right = 100.0
+offset_bottom = 100.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/clear_button_color = Color(0, 1, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("1_xqkfg")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_207qo")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j7465")
+alignment = 1
+max_length = 1
+context_menu_enabled = false

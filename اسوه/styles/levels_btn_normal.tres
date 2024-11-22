@@ -1,0 +1,6 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://b7s5lqqoqrwgc"]
+
+[ext_resource type="Texture2D" uid="uid://cihj0w5k1xlog" path="res://sprite/btn_level_city.png" id="1_lcl82"]
+
+[resource]
+texture = ExtResource("1_lcl82")
