@@ -8,6 +8,7 @@ func load_level(part, level):
 		return JSON.parse_string(file.get_as_text())
 	return {}
 func random_pos(Rect_range:Rect2, sub_range=Rect2(0, 0, 0, 0)) -> Vector2:
+	print_stack()
 	randomize()
 	var x
 	var y

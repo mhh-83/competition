@@ -38,4 +38,6 @@ func _on_button_pressed(part):
 
 
 func _on_back_button_pressed():
-	pass
+	if get_tree().has_group("main"):
+		get_tree().get_nodes_in_group("main")[0].show()
+	queue_free()

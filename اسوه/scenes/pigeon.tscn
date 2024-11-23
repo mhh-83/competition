@@ -1,8 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://4asumvjbi1bp"]
+[gd_scene load_steps=12 format=3 uid="uid://2bujqya0qy63"]
 
 [ext_resource type="Script" path="res://script/pigeon.gd" id="1_8vf11"]
-[ext_resource type="Texture2D" uid="uid://bed3cqyw7aqne" path="res://sprite/pigeon-animation-bird-motion-wings-heaven-birds-sequence-frame-sprite-cycle-movement-flight-feather-d-animated-dove-flying-246524861.png" id="1_asda4"]
-[ext_resource type="Texture2D" uid="uid://b7gsmt7ju6460" path="res://sprite/pigeon.png" id="2_wqtcc"]
+[ext_resource type="Texture2D" uid="uid://c1gb318rgf0jx" path="res://sprite/pigeon-animation-bird-motion-wings-heaven-birds-sequence-frame-sprite-cycle-movement-flight-feather-d-animated-dove-flying-246524861.png" id="1_asda4"]
+[ext_resource type="Texture2D" uid="uid://ju812owgmxfd" path="res://sprite/pigeon.png" id="2_wqtcc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rhlw1"]
 atlas = ExtResource("1_asda4")
@@ -73,7 +73,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"fly",
-"speed": 12.0
+"speed": 11.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -91,3 +91,4 @@ script = ExtResource("1_8vf11")
 sprite_frames = SubResource("SpriteFrames_bpy11")
 animation = &"fly"
 autoplay = "fly"
+frame_progress = 0.797022

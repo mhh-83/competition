@@ -10,17 +10,17 @@ func _ready():
 	var x = Vector2(0, 0)
 	match r:
 		1:
-			x = Vector2(0, randi_range(0, 1366))
+			x = Vector2(0, randi_range(0, 2000))
 		2:
-			x = Vector2(768, randi_range(0, 1366))
+			x = Vector2(1000, randi_range(0, 2000))
 		3:
-			x = Vector2(randi_range(0, 768), 0)
+			x = Vector2(randi_range(0, 1000), 0)
 		4:
-			x = Vector2(randi_range(0, 768), 1366)
+			x = Vector2(randi_range(0, 1000), 2000)
 	position = x
 	scale *= randf_range(0.5, 1.3)
 	speed = randi_range(200, 400)
-	var pos = (position - Vector2(768 / 2, 1366 / 2)).normalized()
+	var pos = (position - Vector2(1000 / 2, 2000 / 2)).normalized()
 	velocity = -pos * speed
 
 	if pos.x < 0:

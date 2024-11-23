@@ -7,6 +7,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if randi_range(0, 200) == 1:
+	if randi_range(0, 100) == 1:
 		get_tree().get_root().call_deferred("add_child", preload("res://scenes/bees.tscn").instantiate())
 	

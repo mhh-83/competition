@@ -10,6 +10,7 @@ var unlock_level = 1
 var type
 var data = {}
 var words = []
+var vgrid = VGrid.new()
 var max_size = 100
 var rotate_words = false
 var back_rotate_words = false
@@ -36,11 +37,12 @@ func update_score(num=0):
 	save("score", score)
 	$Control2/Label.text = str(score)
 func find_word(box):
+	next_words()
 	box.get_child(0).emitting = true
 	box.get_child(1).emitting = true
 func help(state, _score, _id):
 	randomize()
-	var result = await UpdateData.purchase(_id)
+	var result = load_game("score", 0) >= _score
 	if result:
 		$Control2/Label.text = str(load_game("score", 0))
 		if state == 0:
@@ -237,12 +239,19 @@ func _ready():
 			list2.append(list.min())
 			list.erase(list.min())
 		var list3 = []
+		var l_words = []
 		for l in list2:
-			for t in ans:
-				if t.length() == l:
-					list3.append(t)
-					ans.erase(t)
+			for x in range(ans.size()):
+				if ans[x].length() == l:
+					
+					list3.append(ans[x])
+					ans.erase(ans[x])
 					break
+		for a in list3:
+			for w in data.answers:
+				if a == w[1]:
+					quess.append(w[0])
+					word_list.append(w[2])
 		var list4 = []
 		var r = list2.size()
 		if list2.size() > 6:
@@ -256,7 +265,7 @@ func _ready():
 		elif  list2.size() > 6:
 			max_size = ((8 - list4.max()) * 5) + 80
 		answer_list = list3
-		var vgrid = VGrid.new()
+		
 		vgrid.add_theme_constant_override("separation", 30)
 		vgrid.layout_direction = Control.LAYOUT_DIRECTION_RTL
 		vgrid.rows = r
@@ -267,12 +276,11 @@ func _ready():
 		add_answer(1, 0)
 	max_word = data.answers.size()
 	change_word()
-	var quess = []
-	for q in data.answers:
-		quess.append(q[0])
+	
+	
 	#var quess = data.ques.split("؟")
 	for x in range(quess.size()):
-		$Node2D/Panel/PersianLabel.text += str("[color=yellow]",x+1,". ", "[/color]") + quess[x] + "[tornado radius=2 freq=10][color=red]؟[/color][/tornado]" + "\n"
+		$Node2D/Panel/PersianLabel.text += str("[color=green]",x+1,". ", "[/color]") + quess[x] + "[tornado radius=2 freq=10][color=red]؟[/color][/tornado]" + "\n"
 	#if data.ques == "":
 		#$Button.hide()
 	await get_tree().create_timer(0.5).timeout
@@ -318,9 +326,17 @@ func _notification(what):
 func change_word():
 	for child in $TextureRect3/words.get_children():
 		child.queue_free()
-	for w in data.answers:
-		word_list.append(w[2])
+	
 	var word = word_list[current_word].split(" ")
+	for x in range(max_word):
+		if x == current_word:
+			for box in get_tree().get_nodes_in_group("word_"+str(x)):
+				if box is Label:
+					box.play("light")
+		else:
+			for box in get_tree().get_nodes_in_group("word_"+str(x)):
+				if box is Label:
+					box.play("RESET")
 	
 	for x in range(word.size()):
 		add_words(word[x], (360 / word.size()) * x)
@@ -354,6 +370,7 @@ func add_answer(num, count, parent=$VBoxContainer/ScrollContainer/GridBoxContain
 		hbox.layout_direction = Control.LAYOUT_DIRECTION_LTR
 		for x in range(num):
 			var box = preload("res://scenes/box_word.tscn").instantiate()
+			box.add_to_group("word_"+str(count))
 			box.custom_minimum_size = Vector2.ONE * max_size
 			box.label_settings.font_size = 60 * (max_size / 100.0)
 			box.get_child(0).position = Vector2(max_size / 2, max_size)
@@ -426,24 +443,23 @@ func win():
 			lvl += data.score
 			d["lvl"] = lvl
 			update_score(data.score)
-			if type == "سیر در زمان":
-				var data_pic = load_game("data_"+part, [])
-				if data_pic is String:
-					data_pic = UpdateData.get_json(data_pic)
-				var pos = []
-				var n = 0
-				for x in range(data_pic.size()):
-					n = data_pic.size() * data_pic[x].size()
-					for y in range(data_pic[x].size()):
-						if data_pic[x][y] == 0:
-							pos.append(Vector2(x, y))
-			
-				for x in range((n / max_level)):
-					if pos.size() > 0:
-						var p = randi_range(0, len(pos) - 1)
-						data_pic[pos[p].x][pos[p].y] = 1
-						pos.remove_at(p)
-				d["data_"+part] = data_pic
+			var data_pic = load_game("data_"+str(part), [])
+			if data_pic is String:
+				data_pic = UpdateData.get_json(data_pic)
+			var pos = []
+			var n = 0
+			for x in range(data_pic.size()):
+				n = data_pic.size() * data_pic[x].size()
+				for y in range(data_pic[x].size()):
+					if data_pic[x][y] == 0:
+						pos.append(Vector2(x, y))
+		
+			for x in range((n / max_level)):
+				if pos.size() > 0:
+					var p = randi_range(0, len(pos) - 1)
+					data_pic[pos[p].x][pos[p].y] = 1
+					pos.remove_at(p)
+			d["data_"+part] = data_pic
 		d["answer_data"] = []
 		if level < max_level:
 			d["level"] = level + 1
@@ -562,6 +578,7 @@ func _process(delta):
 					for y in range(boxs.size()):
 						if boxs[y].text == "":
 							true_answer = true
+							
 							boxs[y].text = answer_list[1][x][y]
 							answer_data[table_word_c[x][y].x][table_word_c[x][y].y] = data.data[table_word_c[x][y].x][table_word_c[x][y].y]
 							save("answer_data", answer_data)
@@ -578,6 +595,7 @@ func _process(delta):
 				$Timer.start()
 				set_modulate_children(Color.GREEN, $label_pos/Label)
 			elif answered:
+				
 				set_modulate_children(Color.YELLOW, $label_pos/Label)
 			else:
 				set_modulate_children(Color.RED, $label_pos/Label)
@@ -685,6 +703,14 @@ func _gui_input(event):
 			$AnimationPlayer3.play("change_word_2")
 			current_word -= 1
 			change_word()
+func next_words():
+	for x in range(answer_data.size()):
+		if get_tree().has_group("answer"+str(x)):
+			for z in answer_data[x]:
+				if z == "" and current_word != x:
+					current_word = x
+					$AnimationPlayer3.play("change_word")
+					change_word()
 func _on_timer_timeout():
 	$bee/AnimatedSprite2D.play("default")
 	

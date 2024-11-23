@@ -1,6 +1,6 @@
 extends Node2D
-var s
-var t
+var s = Vector2(100, 100)
+var t = Vector2(100, 100)
 func start(start_pos, target_pos):
 	s = start_pos
 	t = target_pos

@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=3 uid="uid://jjqg4m1wi60e"]
+[gd_scene load_steps=100 format=3 uid="uid://jjqg4m1wi60e"]
 
 [ext_resource type="Script" path="res://script/main.gd" id="1_f3nfp"]
 [ext_resource type="Texture2D" uid="uid://dn3fene4cbx3x" path="res://sprite/bg3.png" id="2_ulwe0"]
@@ -16,7 +16,10 @@
 [ext_resource type="Texture2D" uid="uid://buo13oatusyb" path="res://sprite/btn_menu.png" id="16_1b0l8"]
 [ext_resource type="Texture2D" uid="uid://wu1fc7swu5c" path="res://sprite/so.png" id="16_1gafr"]
 [ext_resource type="Texture2D" uid="uid://bxkrgie8ifi0t" path="res://sprite/جعبه.png" id="16_ehogm"]
+[ext_resource type="FontFile" uid="uid://d8e5lo6vogb4" path="res://fonts/IR Morabba Regular.ttf" id="16_mg3d2"]
+[ext_resource type="Script" path="res://script/light.gd" id="17_g1qxi"]
 [ext_resource type="Texture2D" uid="uid://denvrkqpa267p" path="res://sprite/bg7.png" id="18_1ykb8"]
+[ext_resource type="Script" path="res://script/scaler.gd" id="18_ukkdj"]
 [ext_resource type="FontFile" uid="uid://b27pddqoondca" path="res://fonts/Aviny2-mfnbbn.ttf" id="19_blm12"]
 [ext_resource type="StyleBox" uid="uid://3h3uid5ixy8m" path="res://styles/btn3_n.tres" id="19_p6b4g"]
 [ext_resource type="Texture2D" uid="uid://5ha4cf0xpuff" path="res://sprite/پلاک.png" id="21_kw575"]
@@ -115,6 +118,7 @@ texture = ExtResource("16_ehogm")
 [sub_resource type="FontVariation" id="FontVariation_jld4b"]
 base_font = ExtResource("19_blm12")
 spacing_space = -3
+spacing_top = -25
 
 [sub_resource type="FontVariation" id="FontVariation_mm1x8"]
 base_font = ExtResource("19_blm12")
@@ -132,6 +136,16 @@ modulate_color = Color(0.529412, 0.529412, 0.529412, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u3vuq"]
 texture = ExtResource("16_1gafr")
+
+[sub_resource type="FontVariation" id="FontVariation_vuqfe"]
+base_font = ExtResource("16_mg3d2")
+spacing_glyph = 2
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_37iyk"]
+script = ExtResource("17_g1qxi")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_sdtdx"]
+script = ExtResource("18_ukkdj")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_42w20"]
 texture = ExtResource("18_1ykb8")
@@ -1194,7 +1208,23 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_2rdjk")
 theme_override_styles/hover = SubResource("StyleBoxTexture_njfyo")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_7ns6x")
 theme_override_styles/normal = SubResource("StyleBoxTexture_u3vuq")
-text = "سوالات"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Button"]
+layout_mode = 0
+offset_left = -58.0
+offset_top = 11.0
+offset_right = 272.0
+offset_bottom = 122.0
+rotation = -0.000221182
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = SubResource("FontVariation_vuqfe")
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "[light freq=15 len=10 color=red num=2][scaler min=1 space=-4 max=1.2 freq=2][center]سوالات"
+custom_effects = [SubResource("RichTextEffect_37iyk"), SubResource("RichTextEffect_sdtdx")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://djd1qx3agke2x"]
+[gd_scene load_steps=47 format=3 uid="uid://djd1qx3agke2x"]
 
 [ext_resource type="Script" path="res://script/time_travel_parts.gd" id="1_iy0g0"]
 [ext_resource type="Texture2D" uid="uid://b0mkjurh24rbr" path="res://sprite/Layer 11 copy 24.jpg" id="2_ugfsw"]
@@ -11,6 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://ch4sxld17jc0p" path="res://sprite/145454314.png" id="8_46hha"]
 [ext_resource type="Texture2D" uid="uid://u4iqfnbl1hs4" path="res://sprite/unnamed.png" id="9_sfwnt"]
 [ext_resource type="Texture2D" uid="uid://cbue5qgniu3jt" path="res://sprite/1093692_738.png" id="10_d83i3"]
+[ext_resource type="Shader" path="res://shaders/flower.gdshader" id="12_e23hr"]
+[ext_resource type="Texture2D" uid="uid://swn2ix410o88" path="res://sprite/دکمه بازگشت.png" id="12_vk3ck"]
+[ext_resource type="Texture2D" uid="uid://hdr0dkotsggx" path="res://sprite/Tarh.ir copy 2.png" id="13_1ysg3"]
 
 [sub_resource type="FontVariation" id="FontVariation_ky7n6"]
 base_font = ExtResource("3_6j25i")
@@ -25,8 +28,12 @@ modulate_color = Color(0.901961, 0.156863, 0.156863, 1)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y3cpy"]
 texture = ExtResource("3_tmmcl")
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_ivwj6"]
+viewport_path = NodePath("SubViewport")
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8lhuo"]
-texture = ExtResource("3_tmmcl")
+resource_local_to_scene = true
+texture = SubResource("ViewportTexture_ivwj6")
 
 [sub_resource type="Theme" id="Theme_tu6ps"]
 Button/colors/font_color = Color(1, 0, 0, 1)
@@ -44,6 +51,411 @@ Button/styles/hover = SubResource("StyleBoxTexture_y3cpy")
 Button/styles/normal = SubResource("StyleBoxTexture_8lhuo")
 Button/styles/pressed = SubResource("StyleBoxTexture_8lhuo")
 
+[sub_resource type="Gradient" id="Gradient_2faon"]
+offsets = PackedFloat32Array(0, 0.456522, 1)
+colors = PackedColorArray(0, 1, 0, 1, 2.33615e-05, 0.297689, 0.0667339, 0.116667, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_plu7r"]
+gradient = SubResource("Gradient_2faon")
+fill = 1
+fill_from = Vector2(0.529703, 0.5)
+
+[sub_resource type="Curve" id="Curve_j74jr"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_nb1ds"]
+offsets = PackedFloat32Array(0.383562, 0.746575)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_heqgd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fgosa"]
+texture = ExtResource("12_vk3ck")
+
+[sub_resource type="Gradient" id="Gradient_3fsau"]
+offsets = PackedFloat32Array(0, 0.466667, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x7xtq"]
+gradient = SubResource("Gradient_3fsau")
+height = 375
+
+[sub_resource type="Gradient" id="Gradient_q3ewl"]
+offsets = PackedFloat32Array(0, 0.26, 0.666667)
+colors = PackedColorArray(0.796243, 0.796243, 0.796243, 1, 0.676807, 0.676807, 0.676807, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t7bsw"]
+gradient = SubResource("Gradient_q3ewl")
+width = 200
+height = 200
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="Animation" id="Animation_lx8u3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D2:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PointLight2D3:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PointLight2D4:energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_c0agc"]
+resource_name = "new_animation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 1.43]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D2:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.8, 1.5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PointLight2D3:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.8, 1.5]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PointLight2D4:energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.8, 1.5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gn5ik"]
+_data = {
+"RESET": SubResource("Animation_lx8u3"),
+"new_animation": SubResource("Animation_c0agc")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xffr2"]
+shader = ExtResource("12_e23hr")
+shader_parameter/range = 20.0
+shader_parameter/speed = Vector2(1.5, 0)
+shader_parameter/pivot = 1.0
+shader_parameter/dir = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yexui"]
+shader = ExtResource("12_e23hr")
+shader_parameter/range = 20.0
+shader_parameter/speed = Vector2(1.5, 0)
+shader_parameter/pivot = 1.0
+shader_parameter/dir = -1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xka4b"]
+shader = ExtResource("12_e23hr")
+shader_parameter/range = 20.0
+shader_parameter/speed = Vector2(1.5, 0)
+shader_parameter/pivot = 1.0
+shader_parameter/dir = -1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vbro1"]
+shader = ExtResource("12_e23hr")
+shader_parameter/range = 20.0
+shader_parameter/speed = Vector2(1.5, 0)
+shader_parameter/pivot = 1.0
+shader_parameter/dir = 1.0
+
+[sub_resource type="Gradient" id="Gradient_01nn8"]
+offsets = PackedFloat32Array(0, 0.72)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mb4hb"]
+gradient = SubResource("Gradient_01nn8")
+
+[sub_resource type="Animation" id="Animation_mkp61"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D5:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 226)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D5:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_f6wkm"]
+resource_name = "new_animation"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D5:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.33333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 226), Vector2(1, 172), Vector2(2, 157), Vector2(18, 100), Vector2(51, 61), Vector2(79, 36), Vector2(122, 31), Vector2(161, 32), Vector2(186, 51), Vector2(219, 81), Vector2(242, 143), Vector2(243, 202), Vector2(234, 299), Vector2(25, 304)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D5:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.23941, 1.33333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0666124, 0.508915, 0.857629, 0.940023, 1.52695, 2.02952, 2.20078, 2.48683, 3.04809, 3.11537, 3.13448, 2.2081, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p780y"]
+_data = {
+"RESET": SubResource("Animation_mkp61"),
+"new_animation": SubResource("Animation_f6wkm")
+}
+
+[sub_resource type="Animation" id="Animation_okwpk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("buttons/Button5:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-363, 1635)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("buttons/Button6:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1080, 1581)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("buttons/Button3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-348, 1236)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("buttons/Button4:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1076, 1156)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("buttons/Button:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-334, 835)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("buttons/Button2:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1091, 755)]
+}
+
+[sub_resource type="Animation" id="Animation_wgkuj"]
+resource_name = "start"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("buttons/Button5:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-363, 1635), Vector2(111, 1635)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("buttons/Button6:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1080, 1581), Vector2(1080, 1581), Vector2(623, 1581)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("buttons/Button3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-348, 1236), Vector2(-348, 1236), Vector2(120, 1236)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("buttons/Button4:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1076, 1156), Vector2(1076, 1156), Vector2(608, 1156)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("buttons/Button:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-334, 835), Vector2(-334, 835), Vector2(127, 835)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("buttons/Button2:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1091, 755), Vector2(1069, 755), Vector2(597, 755)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b3uy5"]
+_data = {
+"RESET": SubResource("Animation_okwpk"),
+"start": SubResource("Animation_wgkuj")
+}
+
 [node name="time_travel_parts" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -54,6 +466,7 @@ grow_vertical = 2
 script = ExtResource("1_iy0g0")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+light_mask = 5
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -76,10 +489,15 @@ theme = SubResource("Theme_tu6ps")
 [node name="Button5" type="Button" parent="buttons"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.098
+anchor_left = 0.111
 anchor_top = 0.8175
-anchor_right = 0.350604
+anchor_right = 0.363604
 anchor_bottom = 0.943819
+offset_left = -474.0
+offset_right = -474.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_8lhuo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8lhuo")
+theme_override_styles/normal = SubResource("StyleBoxTexture_8lhuo")
 metadata/_edit_use_anchors_ = true
 metadata/part = 0
 
@@ -103,6 +521,21 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_2ex7y")
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="buttons/Button5/Sprite2D"]
+position = Vector2(0, 117)
+amount = 28
+texture = SubResource("GradientTexture2D_plu7r")
+emission_shape = 1
+emission_sphere_radius = 85.45
+direction = Vector2(0, -1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 123.71
+initial_velocity_max = 123.71
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+scale_amount_curve = SubResource("Curve_j74jr")
+color_ramp = SubResource("Gradient_nb1ds")
+
 [node name="TextureRect" type="TextureRect" parent="buttons/Button5"]
 layout_mode = 1
 anchors_preset = 12
@@ -120,10 +553,15 @@ texture = ExtResource("4_hcdl6")
 [node name="Button6" type="Button" parent="buttons"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.612
+anchor_left = 0.623
 anchor_top = 0.7905
-anchor_right = 0.864604
+anchor_right = 0.875604
 anchor_bottom = 0.916819
+offset_left = 457.0
+offset_right = 457.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_8lhuo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8lhuo")
+theme_override_styles/normal = SubResource("StyleBoxTexture_8lhuo")
 metadata/_edit_use_anchors_ = true
 metadata/part = 1
 
@@ -147,6 +585,21 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_trg5b")
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="buttons/Button6/Sprite2D"]
+position = Vector2(0, 117)
+amount = 28
+texture = SubResource("GradientTexture2D_plu7r")
+emission_shape = 1
+emission_sphere_radius = 85.45
+direction = Vector2(0, -1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 123.71
+initial_velocity_max = 123.71
+scale_amount_min = 0.1
+scale_amount_max = 0.2
+scale_amount_curve = SubResource("Curve_j74jr")
+color_ramp = SubResource("Gradient_nb1ds")
+
 [node name="TextureRect" type="TextureRect" parent="buttons/Button6"]
 layout_mode = 1
 anchors_preset = 12
@@ -162,12 +615,18 @@ grow_vertical = 0
 texture = ExtResource("4_hcdl6")
 
 [node name="Button3" type="Button" parent="buttons"]
+light_mask = 9
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.106
+anchor_left = 0.12
 anchor_top = 0.618
-anchor_right = 0.358604
+anchor_right = 0.372604
 anchor_bottom = 0.744319
+offset_left = -468.0
+offset_right = -468.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_8lhuo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8lhuo")
+theme_override_styles/normal = SubResource("StyleBoxTexture_8lhuo")
 metadata/_edit_use_anchors_ = true
 metadata/part = 2
 
@@ -191,6 +650,21 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("7_bk55d")
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="buttons/Button3/Sprite2D"]
+position = Vector2(0, 117)
+amount = 28
+texture = SubResource("GradientTexture2D_plu7r")
+emission_shape = 1
+emission_sphere_radius = 85.45
+direction = Vector2(0, -1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 123.71
+initial_velocity_max = 123.71
+scale_amount_min = 0.1
+scale_amount_max = 0.2
+scale_amount_curve = SubResource("Curve_j74jr")
+color_ramp = SubResource("Gradient_nb1ds")
+
 [node name="TextureRect" type="TextureRect" parent="buttons/Button3"]
 layout_mode = 1
 anchors_preset = 12
@@ -208,10 +682,15 @@ texture = ExtResource("4_hcdl6")
 [node name="Button4" type="Button" parent="buttons"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.642
+anchor_left = 0.608
 anchor_top = 0.578
-anchor_right = 0.894604
+anchor_right = 0.860604
 anchor_bottom = 0.704319
+offset_left = 468.0
+offset_right = 468.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_8lhuo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8lhuo")
+theme_override_styles/normal = SubResource("StyleBoxTexture_8lhuo")
 metadata/_edit_use_anchors_ = true
 metadata/part = 3
 
@@ -252,12 +731,17 @@ texture = ExtResource("4_hcdl6")
 [node name="Button" type="Button" parent="buttons"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.134
+anchor_left = 0.127
 anchor_top = 0.4175
-anchor_right = 0.386604
+anchor_right = 0.379604
 anchor_bottom = 0.54382
+offset_left = -461.0
+offset_right = -461.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_styles/hover = SubResource("StyleBoxTexture_8lhuo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8lhuo")
+theme_override_styles/normal = SubResource("StyleBoxTexture_8lhuo")
 text = "5"
 metadata/_edit_use_anchors_ = true
 metadata/part = 4
@@ -299,10 +783,15 @@ texture = ExtResource("4_hcdl6")
 [node name="Button2" type="Button" parent="buttons"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.677
+anchor_left = 0.986667
 anchor_top = 0.3775
-anchor_right = 0.929604
+anchor_right = 1.23927
 anchor_bottom = 0.503819
+offset_left = 104.333
+offset_right = 104.333
+theme_override_styles/hover = SubResource("StyleBoxTexture_8lhuo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8lhuo")
+theme_override_styles/normal = SubResource("StyleBoxTexture_8lhuo")
 metadata/_edit_use_anchors_ = true
 metadata/part = 5
 
@@ -342,8 +831,125 @@ texture = ExtResource("4_hcdl6")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_right = 102.0
-offset_bottom = 63.0
-text = "بازگشت"
+offset_left = 882.0
+offset_top = 7.0
+offset_right = 983.0
+offset_bottom = 125.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_heqgd")
+theme_override_styles/hover = SubResource("StyleBoxTexture_fgosa")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_fgosa")
+theme_override_styles/normal = SubResource("StyleBoxTexture_fgosa")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(674, 578.75)
+scale = Vector2(1, 1.10533)
+range_item_cull_mask = 4
+texture = SubResource("GradientTexture2D_x7xtq")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(119, 155)
+scale = Vector2(1, 1.10533)
+color = Color(1, 1, 0, 1)
+range_item_cull_mask = 4
+texture = SubResource("GradientTexture2D_t7bsw")
+
+[node name="PointLight2D3" type="PointLight2D" parent="."]
+position = Vector2(870, 203)
+scale = Vector2(1, 1.10533)
+color = Color(1, 1, 0, 1)
+range_item_cull_mask = 4
+texture = SubResource("GradientTexture2D_t7bsw")
+
+[node name="PointLight2D4" type="PointLight2D" parent="."]
+position = Vector2(425, 276)
+scale = Vector2(1, 1.10533)
+color = Color(1, 1, 0, 1)
+range_item_cull_mask = 4
+texture = SubResource("GradientTexture2D_t7bsw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gn5ik")
+}
+autoplay = "new_animation"
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_xffr2")
+layout_mode = 0
+offset_left = 222.0
+offset_top = 563.0
+offset_right = 392.0
+offset_bottom = 808.0
+texture = ExtResource("13_1ysg3")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_yexui")
+layout_mode = 0
+offset_left = 1.0
+offset_top = 572.0
+offset_right = 171.0
+offset_bottom = 817.0
+texture = ExtResource("13_1ysg3")
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_xka4b")
+layout_mode = 0
+offset_left = 509.0
+offset_top = 602.0
+offset_right = 633.0
+offset_bottom = 781.0
+texture = ExtResource("13_1ysg3")
+expand_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_vbro1")
+layout_mode = 0
+offset_left = 712.0
+offset_top = 626.0
+offset_right = 799.0
+offset_bottom = 752.0
+texture = ExtResource("13_1ysg3")
+expand_mode = 1
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(252, 252)
+
+[node name="Control" type="Control" parent="SubViewport"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 252.604
+offset_bottom = 252.638
+
+[node name="TextureRect" type="TextureRect" parent="SubViewport/Control"]
+light_mask = 9
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_tmmcl")
+
+[node name="PointLight2D5" type="PointLight2D" parent="SubViewport/Control"]
+position = Vector2(0, 226)
+color = Color(1, 1, 0, 1)
+energy = 2.4
+range_item_cull_mask = 8
+texture = SubResource("GradientTexture2D_mb4hb")
+offset = Vector2(1, -1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SubViewport/Control"]
+libraries = {
+"": SubResource("AnimationLibrary_p780y")
+}
+autoplay = "new_animation"
+speed_scale = 0.605
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_b3uy5")
+}
+autoplay = "start"
 
 [connection signal="pressed" from="Button" to="." method="_on_back_button_pressed"]

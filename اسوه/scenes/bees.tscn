@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://i6qfkgd125xy"]
+[gd_scene load_steps=15 format=3 uid="uid://7lwv0toy676v"]
 
 [ext_resource type="Script" path="res://script/bees.gd" id="1_k2yvt"]
-[ext_resource type="Texture2D" uid="uid://bed3cqyw7aqne" path="res://sprite/pigeon-animation-bird-motion-wings-heaven-birds-sequence-frame-sprite-cycle-movement-flight-feather-d-animated-dove-flying-246524861.png" id="2_350lg"]
+[ext_resource type="Texture2D" uid="uid://c1gb318rgf0jx" path="res://sprite/pigeon-animation-bird-motion-wings-heaven-birds-sequence-frame-sprite-cycle-movement-flight-feather-d-animated-dove-flying-246524861.png" id="2_350lg"]
+[ext_resource type="Texture2D" uid="uid://h17km3uwdxyl" path="res://sprite/btn_level_city.png" id="3_7eavl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_42dc0"]
 atlas = ExtResource("2_350lg")
@@ -75,9 +76,76 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="Animation" id="Animation_7br6k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-39.75, 65.6447)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ttkgl"]
+resource_name = "new_animation"
+length = 1.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(-27, 70), Vector2(-25, 63), Vector2(-16, 54), Vector2(-11, 46), Vector2(-3, 47), Vector2(2.38419e-07, 43), Vector2(2, 39), Vector2(0, 41), Vector2(-4, 41), Vector2(-7, 47), Vector2(-13, 54), Vector2(-20, 64)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_txcmt"]
+_data = {
+"RESET": SubResource("Animation_7br6k"),
+"new_animation": SubResource("Animation_ttkgl")
+}
+
 [node name="bees" type="Node2D" groups=["bee"]]
 z_index = 2
 script = ExtResource("1_k2yvt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-39.75, 65.6447)
+scale = Vector2(0.447368, 0.447368)
+texture = ExtResource("3_7eavl")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(0.999998, -10)
@@ -86,5 +154,9 @@ scale = Vector2(5, 3.8)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_svtnm")
 animation = &"fly1"
-autoplay = "fly1"
-frame_progress = 0.611235
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_txcmt")
+}
+autoplay = "new_animation"

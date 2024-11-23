@@ -21,23 +21,27 @@ func _ready():
 	mode = load_game("part", "")
 	match mode:
 		0:
-			$biography.texture = preload("res://sprite/شهید+خرازی_.jpg")
+			%biography.texture = preload("res://sprite/شهید+خرازی_.jpg")
 		1:
-			$biography.texture = preload("res://sprite/4980337.jpg")
+			%biography.texture = preload("res://sprite/4980337.jpg")
 		2:
-			$biography.texture = preload("res://sprite/4024035.jpg")
+			%biography.texture = preload("res://sprite/4024035.jpg")
 		3:
-			$biography.texture = preload("res://sprite/9.jpg")
+			%biography.texture = preload("res://sprite/9.jpg")
 		4:
-			$biography.texture = preload("res://sprite/4992624.jpg")
+			%biography.texture = preload("res://sprite/4992624.jpg")
 		5:
-			$biography.texture = preload("res://sprite/Layer 2.jpg")
-	$biography.set_texture($biography.texture)
+			%biography.texture = preload("res://sprite/Layer 2.jpg")
+	%biography.set_texture(%biography.texture)
 	var num = max_level2(["خرازی", "تورجی زاده", "کاظمی", "حجازی", "زاهدی", "نیلفروشان"][mode])
 	unlock_level = load_game("unlock_level_"+str(mode), 1)
 	add_levels(num)
+	max_level = num
 	$AnimationPlayer.play("zoom")
-	
+	if unlock_level == num:
+		$Button2.disabled = false
+		
+		$Button2.show()
 func add_levels(max):
 	for x in range(max):
 		var btn = $Button.duplicate()
@@ -197,5 +201,5 @@ func _on_animation_player_2_animation_finished(anim_name):
 
 func _on_button_2_pressed() -> void:
 	var g = preload("res://scenes/guess_name.tscn").instantiate()
-	g.texture = $biography.duplicate()
+	g.texture = %biography.duplicate()
 	get_tree().get_root().add_child(g)

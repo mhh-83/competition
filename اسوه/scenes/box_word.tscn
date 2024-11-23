@@ -1,13 +1,25 @@
-[gd_scene load_steps=15 format=3 uid="uid://d27evw7paaklb"]
+[gd_scene load_steps=20 format=3 uid="uid://d27evw7paaklb"]
 
 [ext_resource type="FontFile" uid="uid://b27pddqoondca" path="res://fonts/Aviny2-mfnbbn.ttf" id="1_t6ckt"]
 [ext_resource type="Texture2D" uid="uid://belbmsp35wysp" path="res://sprite/لاله.png" id="1_yuxw4"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tpw4e"]
-texture = ExtResource("1_yuxw4")
-
 [sub_resource type="LabelSettings" id="LabelSettings_gdy3j"]
 font_size = 60
+
+[sub_resource type="GDScript" id="GDScript_7kfqt"]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+func play(anime):
+	$AnimationPlayer.play(anime)
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [sub_resource type="Curve" id="Curve_vrqyj"]
 min_value = -360.0
@@ -88,15 +100,60 @@ turbulence_influence_max = 0.82
 turbulence_initial_displacement_min = 14.1
 turbulence_initial_displacement_max = 16.7
 
+[sub_resource type="Gradient" id="Gradient_opffq"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ba7ku"]
+gradient = SubResource("Gradient_opffq")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="Animation" id="Animation_tga43"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_v28bk"]
+resource_name = "light"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ypf1w"]
+_data = {
+"RESET": SubResource("Animation_tga43"),
+"light": SubResource("Animation_v28bk")
+}
+
 [node name="box_word" type="Label"]
 custom_minimum_size = Vector2(100, 100)
 offset_right = 100.0
 offset_bottom = 100.0
 theme_override_fonts/font = ExtResource("1_t6ckt")
-theme_override_styles/normal = SubResource("StyleBoxTexture_tpw4e")
 label_settings = SubResource("LabelSettings_gdy3j")
 horizontal_alignment = 1
 vertical_alignment = 1
+script = SubResource("GDScript_7kfqt")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(50, 100)
@@ -116,3 +173,26 @@ texture = SubResource("GradientTexture2D_2183i")
 lifetime = 2.0
 speed_scale = 1.84
 local_coords = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+show_behind_parent = true
+light_mask = 17
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 113.0
+texture = ExtResource("1_yuxw4")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(49.5, 56.5)
+scale = Vector2(1.31793, 1.48098)
+color = Color(1, 1, 0, 1)
+energy = 0.0
+blend_mode = 1
+range_item_cull_mask = 16
+texture = SubResource("GradientTexture2D_ba7ku")
+texture_scale = 1.15
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ypf1w")
+}

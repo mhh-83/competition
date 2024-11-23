@@ -36,11 +36,13 @@ func _ready():
 	
 	for x in range(col):
 		for y in range(row):
-			var rect = ColorRect.new()
+			var rect = TextureRect.new()
 			var material_r = ShaderMaterial.new()
 			material_r.shader = preload("res://shaders/kill.tres")
 			rect.material = material_r
-			rect.color = Color.RED
+			rect.texture = preload("res://sprite/کنگره.jpg")
+			rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+			rect.stretch_mode = TextureRect.STRETCH_SCALE
 			rect.set_meta("pos", Vector2(x, y))
 			rect.size = Vector2(size_x, size_y)
 			rect.position = Vector2(size_x * x, size_y * y)
